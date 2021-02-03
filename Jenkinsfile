@@ -17,15 +17,5 @@ pipeline {
                 //}
             //}                
         }
-        stage('Build') {
-            steps {
-                sh "./gradlew assemble"
-            }
-            post {
-                success {
-                    archiveArtifacts 'build/libs/*.jar'
-                }
-            }
-        }
     }
 }
