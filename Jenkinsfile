@@ -11,11 +11,11 @@ pipeline {
             steps {
                 sh './gradlew -Dgeb.env=firefoxHeadless iT'
             }
-            post {
-                always {
-                    junit 'build/test-results/integrationTest/*.xml'
-                }
-            }                
+            //post {
+              //  always {
+                //    junit 'build/test-results/integrationTest/*.xml'
+                //}
+            //}                
         }
         stage('Build') {
             steps {
