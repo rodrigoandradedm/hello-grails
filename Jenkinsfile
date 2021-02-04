@@ -11,11 +11,20 @@ pipeline {
             steps {
                 sh './gradlew -Dgeb.env=firefoxHeadless iT'
             }
-            //post {
-              //  always {
-                //    junit 'build/test-results/integrationTest/*.xml'
-                //}
-            //}                
+            post {
+                always {
+                    publishHTML(
+                        target: [
+                        allowMissing         : false,
+                        alwaysLinkToLastBuild: false,
+                        keepAll              : true,
+                        reportDir            : 'build/reports/codenarc/',
+                        reportFiles          : 'test.html',
+                        reportName           : "Codenarc Report"
+                        ]
+                    )
+                }
+            }                
         }
     }
 }
