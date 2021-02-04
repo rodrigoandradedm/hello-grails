@@ -11,20 +11,20 @@ pipeline {
             steps {
                 sh './gradlew -Dgeb.env=firefoxHeadless iT'
             }
-            post {
-                always {
-                    publishHTML(
-                        target: [
-                        allowMissing         : false,
-                        alwaysLinkToLastBuild: false,
-                        keepAll              : true,
-                        reportDir            : 'build/reports/codenarc',
-                        reportFiles          : 'test.html',
-                        reportName           : "Codenarc Report"
-                        ]
-                    )
-                }
-            }                
+            //post {
+              //  always {
+                //    publishHTML(
+                    //    target: [
+                    //    allowMissing         : false,
+                    //    alwaysLinkToLastBuild: false,
+                    //    keepAll              : true,
+                    //    reportDir            : 'build/reports/codenarc',
+                    //    reportFiles          : 'test.html',
+                    //    reportName           : "Codenarc Report"
+                    //    ]
+                    //)
+                //}
+            //}                
         }
     }
 }
