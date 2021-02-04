@@ -9,8 +9,12 @@ pipeline {
         }
         stage('Test') {
             steps {
-                sh './gradlew -Dgeb.env=firefoxHeadless iT'
+                configFileProvider([configFile(fileId: 'hello-grails-gradle.properties', variable: 'systemProp.geb.env')]) {
+                    //sh './gradlew -Dgeb.env=${env.systemProp.geb.env} iT'
+                    sh 'echo ${env.systemProp.geb.env}' 
+                }
             }
+        }
             //post {
               //  always {
                 //    publishHTML(
