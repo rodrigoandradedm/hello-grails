@@ -11,8 +11,6 @@ pipeline {
             steps {
                 configFileProvider([configFile(fileId: 'hello-grails-gradle.properties', variable: 'systemProp.geb.env')]) {
                     //sh './gradlew -Dgeb.env=${env.systemProp.geb.env} iT'
-                    def props = readProperties file: "$systemProp.geb.env"
-                    def systemProp.geb.env = props['systemProp.geb.env']
                     echo $systemProp.geb.env
                 }
             }
