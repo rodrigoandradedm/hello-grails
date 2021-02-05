@@ -10,9 +10,7 @@ pipeline {
         stage('Test') {
             steps {
                 configFileProvider([configFile(fileId: 'hello-grails-gradle.properties', variable: 'systemProp.geb.env')]) {
-                    sh './gradlew test'
                     sh './gradlew integrationTest'
-
                 }
             }
             post {
