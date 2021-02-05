@@ -15,20 +15,20 @@ pipeline {
 
                 }
             }
-        }
-        //post {
-        //    always {
-        //        publishHTML(
-        //            target: [
-        //            alwaysLinkToLastBuild: true,
-        //            keepAll              : true,
-        //            reportDir            : 'build/reports/codenarc/',
-        //            reportFiles          : '*.html',
-        //            reportName           : "Codenarc Report"
-        //            ]
-        //        )
-        //    }
-        //}                
+            post {
+                always {
+                publishHTML(
+                    target: [
+                    alwaysLinkToLastBuild: true,
+                    keepAll              : true,
+                    reportDir            : 'build/reports/codenarc/',
+                    reportFiles          : '*.html',
+                    reportName           : "Codenarc Report"
+                    ]
+                )
+                }
+            }
+        }                
     }
 }
 
