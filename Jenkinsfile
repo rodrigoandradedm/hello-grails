@@ -16,15 +16,23 @@ pipeline {
             }
             post {
                 always {
-                    publishHTML(
-                        target: [
+		    publishHTML (target : [allowMissing: false,
                         alwaysLinkToLastBuild: true,
-                        keepAll              : true,
-                        reportDir            : 'build/reports/codenarc/',
-                        reportFiles          : '*.html',
-                        reportName           : "Codenarc Report"
-                    	]
-                    )
+                        keepAll: true,
+                        reportDir: 'build/reports/codenarc/',
+                        reportFiles: 'test.html',
+                        reportName: 'Codenarc Test Report',
+                        reportTitles: 'Codenarc Test Report'
+                    ])
+                    //publishHTML(
+                    //    target: [
+                    //    alwaysLinkToLastBuild: true,
+                    //    keepAll              : true,
+                    //    reportDir            : 'build/reports/codenarc/',
+                    //    reportFiles          : '*.html',
+                    //    reportName           : "Codenarc Report"
+                    //	]
+                    //)
                 }
             }
         }                
