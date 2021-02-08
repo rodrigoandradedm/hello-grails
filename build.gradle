@@ -12,7 +12,6 @@ buildscript {
 
 version "0.1"
 group "com"
-
 apply plugin:"eclipse"
 apply plugin:"idea"
 apply plugin:"war"
@@ -24,6 +23,7 @@ apply plugin:"org.grails.grails-gsp"
 repositories {
     maven { url "https://repo.grails.org/grails/core" }
 }
+
 
 configurations {
     developmentOnly
@@ -83,6 +83,7 @@ webdriverBinaries {
     chromedriver "$chromeDriverVersion"
     geckodriver "$geckodriverVersion"
 }
+
 
 bootRun {
     ignoreExitValue true
