@@ -14,6 +14,9 @@ pipeline {
                     sh './gradlew integrationTest'
 		    sh './gradlew codenarcTest'
                 }
+		withSonarQubeEnv(credentialsId: '47355589-96b7-4a4d-a3e1-97f149f76f8e', installationName: 'local') {
+    			sh './gradlew sonarqube'
+		}
             }
             post {
                 always {
